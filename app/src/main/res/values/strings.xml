@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GeofencingProject</string>
+    <string name="one_alarm">Alarm</string>
+    <string name="Many_alarm">Alarms</string>
+    <string name="new_alarm_description">Button to create a new alarm</string>
+    <string name="set_alarm">Set alarm</string>
+</resources>
