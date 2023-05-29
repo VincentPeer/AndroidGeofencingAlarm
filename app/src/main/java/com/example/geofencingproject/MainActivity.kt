@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
+
         if (!clockAlarms.canScheduleExactAlarms()) {
             openSettings()
         }

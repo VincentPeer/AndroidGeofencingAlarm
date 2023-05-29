@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/clock_alarm"
+
+    <TextView
+        android:id="@+id/alarm_type_choice_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clock Alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/clock_alarm_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/alarm_choice_title_text"
+        android:textSize="@dimen/title_text_size"
         />
 
     <Button
-        android:id="@+id/geo_alarm"
+        android:id="@+id/clock_alarm_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Geo Alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/geo_alarm_btn"
+        android:text="@string/alarm_clock_btn_text"
         />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/geo_alarm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clock_alarm_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/alarm_geo_btn_text"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

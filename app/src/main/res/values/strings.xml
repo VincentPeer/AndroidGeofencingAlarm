@@ -4,4 +4,7 @@
     <string name="Many_alarm">Alarms</string>
     <string name="new_alarm_description">Button to create a new alarm</string>
     <string name="set_alarm">Set alarm</string>
+    <string name="alarm_clock_btn_text">Alarm clock</string>
+    <string name="alarm_geo_btn_text">Geofenced alarm</string>
+    <string name="alarm_choice_title_text">Select an alarm type</string>
 </resources>
