@@ -1,15 +1,14 @@
-package com.example.geofencingproject.clockalame
+package com.example.geofencingproject.alarms
 
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import com.example.geofencingproject.Alarm
 
 const val EXACT_ALARM_INTENT_REQUEST_CODE = 1001
 
-class ClockAlarm(val context: Context, name: String = "default name") : Alarm(name) {
+class ClockAlarm(private val context: Context, name: String = "default name") : Alarm(name) {
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     private var alarmTime : Long = 0
 

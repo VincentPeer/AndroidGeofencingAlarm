@@ -1,4 +1,4 @@
-package com.example.geofencingproject.clockalame
+package com.example.geofencingproject.alarms
 
 import android.content.BroadcastReceiver
 import android.content.Context

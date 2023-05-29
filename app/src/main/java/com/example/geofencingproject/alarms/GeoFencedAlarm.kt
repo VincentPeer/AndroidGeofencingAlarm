@@ -1,6 +1,6 @@
-package com.example.geofencingproject.geofencing
+package com.example.geofencingproject.alarms
 
-import com.example.geofencingproject.Alarm
+import com.example.geofencingproject.alarms.Alarm
 
 class GeoFencedAlarm(name: String) : Alarm(name) {
     private var latitude: Double = 0.0

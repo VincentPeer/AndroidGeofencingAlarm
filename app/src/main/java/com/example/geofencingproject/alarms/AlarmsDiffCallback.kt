@@ -1,7 +1,7 @@
-package com.example.geofencingproject.clockalame
+package com.example.geofencingproject.alarms
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.geofencingproject.Alarm
+import com.example.geofencingproject.alarms.Alarm
 
 
 class AlarmsDiffCallback(private val oldList: List<Alarm>, private val newList: List<Alarm>) : DiffUtil.Callback() {
