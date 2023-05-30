@@ -24,8 +24,9 @@ import com.example.geofencingproject.alarms.GeoFencedAlarm
 import com.example.geofencingproject.ui.AlarmChoiceFragment
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var timePicker : TimePicker
+    companion object {
+        lateinit var adapter: RecyclerAdapter
+    }
 
 
     private fun openSettings() {
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val clockAlarms = ClockAlarm(applicationContext)
 
         val recycler = findViewById<RecyclerView>(R.id.recycle_view)
-        val adapter = RecyclerAdapter()
+        adapter = RecyclerAdapter()
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         adapter.items = listOf( ClockAlarm(applicationContext, "alarm 1"), ClockAlarm(applicationContext, "alarm 2"), GeoFencedAlarm( "geo alarm 3"))

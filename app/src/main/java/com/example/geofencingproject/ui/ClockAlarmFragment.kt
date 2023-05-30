@@ -13,6 +13,8 @@ import android.util.Log
 import android.widget.Button
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.example.geofencingproject.MainActivity
 import com.example.geofencingproject.R
 import com.example.geofencingproject.alarms.ClockAlarm
 import java.util.*
@@ -40,8 +42,10 @@ class ClockAlarmFragment : Fragment() {
                 binding.timePicker.minute, 0
             )
             val clockAlam = ClockAlarm(requireActivity().applicationContext,"my alarm")
-            //val alarmTimeMillis: Long = clockAlam.convertToAlarmTimeMillis(calendar.get(Calendar.HOUR), calendar.get(Calendar.HOUR))
             clockAlam.setExactAlarm(calendar.timeInMillis)
+            activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            MainActivity.adapter.items = MainActivity.adapter.items.plus(ClockAlarm(requireContext(), "alaaarm")) // TODO
+            Log.d("ClockAlarmFragment", "sizeof item list : ${MainActivity.adapter.items.size}")
         }
     }
 

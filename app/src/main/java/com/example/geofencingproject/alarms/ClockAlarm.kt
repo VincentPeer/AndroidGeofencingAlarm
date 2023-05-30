@@ -18,9 +18,11 @@ class ClockAlarm(private val context: Context, name: String = "default name") : 
     }
     fun setExactAlarm(timeInMillis: Long) {
         val pendingIntent = createExactAlarmIntent()
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent)
-//        val alarmClockInfo = AlarmManager.AlarmClockInfo(timeInMillis, pendingIntent)
-//        alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
+
+        // For exact alarm, the two following lines can be replaced by the line just below
+        // alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent)
+        val alarmClockInfo = AlarmManager.AlarmClockInfo(timeInMillis, pendingIntent)
+        alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
     }
 
     fun canScheduleExactAlarms(): Boolean {
@@ -40,29 +42,4 @@ class ClockAlarm(private val context: Context, name: String = "default name") : 
             PendingIntent.FLAG_IMMUTABLE
         )
     }
-
-    fun convertToAlarmTimeMillis(hour: Int, minute: Int): Long {
-        val calendar = Calendar.getInstance()
-        val currentTimeMillis = calendar.timeInMillis
-        val proposedTimeMillis = calendar.setHourAndMinute(hour, minute).timeInMillis
-
-        val alarmTimeMillis: Long = if (proposedTimeMillis > currentTimeMillis) {
-            proposedTimeMillis
-        } else {
-            proposedTimeMillis.plusOneDay()
-        }
-
-        return alarmTimeMillis
-    }
-
-    fun Calendar.setHourAndMinute(hour: Int, minute: Int): Calendar {
-        set(Calendar.HOUR_OF_DAY, hour)
-        set(Calendar.MINUTE, minute)
-        set(Calendar.SECOND, 0)
-        set(Calendar.MILLISECOND, 0)
-
-        return this
-    }
-    fun Long.plusOneDay(): Long = this + 24 * 60 * 60 * 1000
-
 }
