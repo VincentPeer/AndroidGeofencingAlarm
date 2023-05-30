@@ -22,14 +22,24 @@ class AlarmChoiceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.clock_alarm_btn).setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_fragment, ClockAlarmFragment.newInstance())?.commit() // TODO manager les ?.
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.main_fragment, ClockAlarmFragment.newInstance())
+                ?.addToBackStack("backToAlarmChoice")
+                ?.setReorderingAllowed(true)
+                ?.commit() // TODO manager les ?.
         }
+
         view.findViewById<Button>(R.id.geo_alarm_btn).setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_fragment, GeofencingAlarmFragment.newInstance())?.commit() // TODO manager les ?.
+            activity?.supportFragmentManager?.beginTransaction() // TODO  parentFragmentManager ?
+                ?.replace(R.id.main_fragment, GeofencingAlarmFragment.newInstance())
+                ?.addToBackStack("backToAlarmChoice")
+                ?.setReorderingAllowed(true)
+                ?.commit() // TODO manager les ?.
         }
     }
 
     companion object {
+        @JvmStatic
         fun newInstance() = AlarmChoiceFragment()
     }
 }

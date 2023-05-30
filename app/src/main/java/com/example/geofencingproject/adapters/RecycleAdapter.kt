@@ -44,7 +44,7 @@ class RecyclerAdapter(_items : List<Alarm> = listOf()) : RecyclerView.Adapter<Re
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val nameClockAlarm = view.findViewById<TextView>(R.id.list_item_clock_alarm_name)
+        private val nameClockAlarm = view.findViewById<TextView>(R.id.item_clock_alarm_name)
         private val nameGeoAlarm = view.findViewById<TextView>(R.id.list_item_geo_alarm_name)
         fun bind(alarm : Alarm) {
             if(alarm is ClockAlarm) nameClockAlarm?.text = alarm.name
