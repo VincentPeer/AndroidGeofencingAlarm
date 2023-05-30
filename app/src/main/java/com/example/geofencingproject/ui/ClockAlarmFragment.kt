@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.util.Log
 import android.widget.Button
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
@@ -24,12 +25,12 @@ class ClockAlarmFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentClockAlarmBinding.inflate(inflater, container, false)
-
-        return inflater.inflate(R.layout.fragment_clock_alarm, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.validateAlarmBtn.setOnClickListener {
+            Log.d("ClockAlarmFragment", "set alarm button pressed")
             val calendar: Calendar = Calendar.getInstance()
             calendar.set(
                 calendar.get(Calendar.YEAR),
@@ -38,9 +39,9 @@ class ClockAlarmFragment : Fragment() {
                 binding.timePicker.hour,
                 binding.timePicker.minute, 0
             )
-            val clockAlam = ClockAlarm(requireContext(),"my alarm")
-            val alarmTimeMillis: Long = clockAlam.convertToAlarmTimeMillis(calendar.get(Calendar.HOUR), calendar.get(Calendar.HOUR))
-            clockAlam.setExactAlarm(alarmTimeMillis)
+            val clockAlam = ClockAlarm(requireActivity().applicationContext,"my alarm")
+            //val alarmTimeMillis: Long = clockAlam.convertToAlarmTimeMillis(calendar.get(Calendar.HOUR), calendar.get(Calendar.HOUR))
+            clockAlam.setExactAlarm(calendar.timeInMillis)
         }
     }
 

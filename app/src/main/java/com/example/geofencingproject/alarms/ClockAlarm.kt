@@ -11,7 +11,6 @@ const val EXACT_ALARM_INTENT_REQUEST_CODE = 1001
 
 class ClockAlarm(private val context: Context, name: String = "default name") : Alarm(name) {
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-    private var alarmTime : Long = 0
 
 
     init {
@@ -19,8 +18,9 @@ class ClockAlarm(private val context: Context, name: String = "default name") : 
     }
     fun setExactAlarm(timeInMillis: Long) {
         val pendingIntent = createExactAlarmIntent()
-        val alarmClockInfo = AlarmManager.AlarmClockInfo(timeInMillis, pendingIntent)
-        alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent)
+//        val alarmClockInfo = AlarmManager.AlarmClockInfo(timeInMillis, pendingIntent)
+//        alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
     }
 
     fun canScheduleExactAlarms(): Boolean {
