@@ -7,4 +7,8 @@
     <string name="alarm_clock_btn_text">Alarm clock</string>
     <string name="alarm_geo_btn_text">Geofenced alarm</string>
     <string name="alarm_choice_title_text">Select an alarm type</string>
+    <string name="alarm_clock_icon_descr">Alarm clock icon</string>
+    <string name="alarm_geo_icon_descr">Alarm geo icon</string>
+    <string name="geo_alarm_name_title">Enter the geo alarm name</string>
+    <string name="save_text_btn">Save</string>
 </resources>

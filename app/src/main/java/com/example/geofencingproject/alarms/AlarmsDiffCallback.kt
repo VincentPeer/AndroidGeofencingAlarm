@@ -13,6 +13,6 @@ class AlarmsDiffCallback(private val oldList: List<Alarm>, private val newList: 
     override fun areContentsTheSame(oldItemPosition : Int, newItemPosition : Int): Boolean {
         val old = oldList[oldItemPosition]
         val new = newList[newItemPosition]
-        return old::class == new::class && old.name == new.name
+        return old::class == new::class
     }
 }

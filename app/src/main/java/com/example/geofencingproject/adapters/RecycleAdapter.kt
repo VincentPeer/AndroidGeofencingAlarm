@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.geofencingproject.alarms.Alarm
 import com.example.geofencingproject.R
 import com.example.geofencingproject.alarms.AlarmsDiffCallback
-import com.example.geofencingproject.alarms.ClockAlarm
+import com.example.geofencingproject.alarms.entities.ClockAlarm
+import com.example.geofencingproject.alarms.entities.GeoFencedAlarm
 
 class RecyclerAdapter(_items : List<Alarm> = listOf()) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     var items = listOf<Alarm>()
@@ -44,12 +45,11 @@ class RecyclerAdapter(_items : List<Alarm> = listOf()) : RecyclerView.Adapter<Re
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val nameClockAlarm = view.findViewById<TextView>(R.id.item_clock_alarm_name)
-        private val nameGeoAlarm = view.findViewById<TextView>(R.id.list_item_geo_alarm_name)
+        private val textClockAlarm = view.findViewById<TextView>(R.id.item_clock_alarm_name)
+        private val textGeoAlarm = view.findViewById<TextView>(R.id.list_item_geo_alarm_name)
         fun bind(alarm : Alarm) {
-            if(alarm is ClockAlarm) nameClockAlarm?.text = alarm.name
-            else nameGeoAlarm?.text = alarm.name
+            if(alarm is ClockAlarm) textClockAlarm?.text = alarm.getTriggerTime()
+            else textGeoAlarm?.text = (alarm as GeoFencedAlarm).name
         }
     }
-
 }

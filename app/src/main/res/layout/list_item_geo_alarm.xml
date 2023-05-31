@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/alarm_item_height"
-    android:layout_marginBottom="@dimen/item_list_vertical_padding"
+    android:layout_marginBottom="@dimen/item_list_padding"
+    android:paddingStart="@dimen/item_list_padding"
+    android:paddingEnd="@dimen/item_list_padding"
     tools:context=".MainActivity">
 
 
@@ -16,18 +18,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/location_icon"
-        android:contentDescription="Alarm clock icon" />
+        android:contentDescription="@string/alarm_geo_icon_descr" />
 
 
     <TextView
         android:id="@+id/list_item_geo_alarm_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Geo alarm"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/alarm_clock_icon"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/list_item_text_size"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
