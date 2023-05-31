@@ -9,13 +9,11 @@ import java.util.*
 
 const val EXACT_ALARM_INTENT_REQUEST_CODE = 1001
 
-class ClockAlarm(private val context: Context, name: String = "default name") : Alarm(name) {
+class ClockAlarm(private val context: Context) : Alarm() {
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    private lateinit var triggerTime: Calendar
 
 
-    init {
-        super.name = name
-    }
     fun setExactAlarm(timeInMillis: Long) {
         val pendingIntent = createExactAlarmIntent()
 
@@ -23,6 +21,18 @@ class ClockAlarm(private val context: Context, name: String = "default name") : 
         // alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent)
         val alarmClockInfo = AlarmManager.AlarmClockInfo(timeInMillis, pendingIntent)
         alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
+    }
+
+    fun setTriggertime(hour: Int, minute: Int) {
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.set(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH),
+            hour,
+            minute,
+            0
+        )
     }
 
     fun canScheduleExactAlarms(): Boolean {

@@ -33,22 +33,13 @@ class ClockAlarmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.validateAlarmBtn.setOnClickListener {
             Log.d("ClockAlarmFragment", "set alarm button pressed")
-            val calendar: Calendar = Calendar.getInstance()
-            calendar.set(
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH),
-                binding.timePicker.hour,
-                binding.timePicker.minute, 0
-            )
-            val clockAlam = ClockAlarm(requireActivity().applicationContext,"my alarm")
-            clockAlam.setExactAlarm(calendar.timeInMillis)
+
+            val clockAlam = ClockAlarm(requireActivity().applicationContext)
+            clockAlam.setTriggertime(binding.timePicker.hour, binding.timePicker.minute)
             activity?.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            MainActivity.adapter.items = MainActivity.adapter.items.plus(ClockAlarm(requireContext(), "alaaarm")) // TODO
-            Log.d("ClockAlarmFragment", "sizeof item list : ${MainActivity.adapter.items.size}")
+            MainActivity.adapter.items.plus(clockAlam)
         }
     }
-
 
 
     companion object {

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         adapter = RecyclerAdapter()
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
-        adapter.items = listOf( ClockAlarm(applicationContext, "alarm 1"), ClockAlarm(applicationContext, "alarm 2"), GeoFencedAlarm( "geo alarm 3"))
+        adapter.items = mutableListOf( ClockAlarm(applicationContext, "alarm 1"), ClockAlarm(applicationContext, "alarm 2"), GeoFencedAlarm( "geo alarm 3"))
 
 
         findViewById<ImageButton>(R.id.create_alarm).setOnClickListener {
