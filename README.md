@@ -12,4 +12,6 @@ If necessary, you can send users to the Alarms & reminders screen in system sett
 In your app's UI, explain to the user why your app needs to schedule exact alarms.
 Invoke an intent that includes the ACTION_REQUEST_SCHEDULE_EXACT_ALARM intent action.
 
-alarme example https://www.tutorialspoint.com/how-to-use-alarmmanager-in-android
+alarme examples:  
+https://www.tutorialspoint.com/how-to-use-alarmmanager-in-android  
+https://www.kodeco.com/33899169-triggering-alarms-tutorial-for-android-getting-started#toc-anchor-006
