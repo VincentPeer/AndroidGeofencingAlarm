@@ -19,22 +19,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun openSettings() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val clockAlarms = ClockAlarm(applicationContext)
 
         val recycler = findViewById<RecyclerView>(R.id.recycle_view)
         adapter = RecyclerAdapter()
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
-
 
         findViewById<ImageButton>(R.id.create_alarm).setOnClickListener {
             supportFragmentManager.beginTransaction()
@@ -43,10 +35,10 @@ class MainActivity : AppCompatActivity() {
                 .setReorderingAllowed(true)
                 .commit()
         }
-
-
-        if (!clockAlarms.canScheduleExactAlarms()) {
-            openSettings()
+    }
+    private fun openSettings() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
         }
     }
 }

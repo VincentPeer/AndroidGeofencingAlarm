@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/alarm_item_height"
-    android:layout_marginBottom="@dimen/item_list_padding"
-    android:paddingStart="@dimen/item_list_padding"
-    android:paddingEnd="@dimen/item_list_padding"
+    android:layout_height="@dimen/icon_list_item_size"
+    android:layout_marginBottom="@dimen/item_padding"
+    android:paddingStart="@dimen/item_padding"
+    android:paddingEnd="@dimen/item_padding"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/alarm_clock_icon"
-        android:layout_width="@dimen/icon_item_size"
+        android:layout_width="@dimen/icon_list_item_size"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

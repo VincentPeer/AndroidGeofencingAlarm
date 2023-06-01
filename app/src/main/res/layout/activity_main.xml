@@ -21,10 +21,15 @@
         android:layout_height="match_parent" />
 
 
+
     <ImageButton
         android:id="@+id/create_alarm"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/new_alarm_btn_size"
+        android:layout_height="@dimen/new_alarm_btn_size"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="@dimen/item_padding"
+        android:layout_marginEnd="@dimen/item_padding"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/create_alarm_icon"
         app:layout_constraintBottom_toBottomOf="parent"
