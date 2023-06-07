@@ -17,5 +17,5 @@ https://www.tutorialspoint.com/how-to-use-alarmmanager-in-android
 https://www.kodeco.com/33899169-triggering-alarms-tutorial-for-android-getting-started#toc-anchor-006
 
 Google doc  
-https://developers.google.com/codelabs/maps-platform/maps-platform-101-android?hl=fr#5  
-
+https://developers.google.com/codelabs/maps-platform/maps-platform-101-android?hl=fr#5    
+https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial?hl=fr  
